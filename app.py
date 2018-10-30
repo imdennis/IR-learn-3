@@ -23,9 +23,8 @@ def c(w_i,d_j):
 
 topic = []
 # E-step_rand
+
 def P_T_W_D(word_i, doc_j, k):
-    return 0.5
-def P_T_W_D2(word_i, doc_j, k):
     numerator = P_W_T(word_i, topic[k])*P_T_D(topic[k], doc_j)
     denominator = 0
     for i in range(k):
@@ -49,10 +48,12 @@ def P_W_T(word_i, topic_k):
     return numerator/denominator
     
 def P_T_D(topic_k, doc_j):
-    numerator = 0
+    numerator = 0 
     denominator = 0
     for w in doc_j:
         numerator += c(w,doc_j)*P_T_W_D(w,doc_j,k)
         denominator += len(doc_j)
     return numerator/denominator
+
+
 
